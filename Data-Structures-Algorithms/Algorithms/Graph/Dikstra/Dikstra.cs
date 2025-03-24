@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Data_Structures_Algorithms.Algorithms
+namespace Data_Structures_Algorithms.Algorithms.Graph.Dikstra
 {
     public class Dikstra
     {

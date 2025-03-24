@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Data_Structures_Algorithms.Algorithms
+namespace Data_Structures_Algorithms.ProblemSolvingTechniques.BackTracking
 {
     //Backtracking Recursion with Breadth First Search
     public class WordSearch
@@ -48,11 +48,11 @@ namespace Data_Structures_Algorithms.Algorithms
 
         private bool SearchWord(int i, int j, int index, string word, char[][] board)
         {
-            if (index == word.Length) 
+            if (index == word.Length)
                 return true;
 
 
-            if (i < 0 || i >= board.Length || j < 0 || j >= board[i].Length || word[index] != board[i][j] || visited[i][j]) 
+            if (i < 0 || i >= board.Length || j < 0 || j >= board[i].Length || word[index] != board[i][j] || visited[i][j])
                 return false;
 
             visited[i][j] = true;

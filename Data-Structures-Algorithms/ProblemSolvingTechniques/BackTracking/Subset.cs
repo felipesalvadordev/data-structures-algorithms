@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Data_Structures_Algorithms.Algorithms
+namespace Data_Structures_Algorithms.ProblemSolvingTechniques.BackTracking
 {
     //Considering this fact gives the time complexity (2N). Also, O(N) time requires printing each subset.
     //Therefore, the total time complexity of the program is O(N x 2N).
@@ -51,8 +51,7 @@ namespace Data_Structures_Algorithms.Algorithms
                 //Should we add the current index in the subset?
                 //First choice (not adding the current index)
                 sub[index] = 0;
-                var msgToPrint = "";
-                msgToPrint = "Not adding the current index in the subset";
+                var msgToPrint = "Not adding the current index in the subset";
                 PrintIndexAndTemporarySubSet(msgToPrint, index, sub, givenArray);
                 Helper(givenArray, sub, index + 1);
                 //Second choice (adding the current index)

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Data_Structures_Algorithms.Algorithms
+namespace Data_Structures_Algorithms.ProblemSolvingTechniques.SlidingWindow
 {
     public class LongestUniqueSubsttr
     {
@@ -11,7 +11,7 @@ namespace Data_Structures_Algorithms.Algorithms
             var len = CountLongestUniqueSubsttr(str);
             Console.WriteLine("The length of the longest " + "non-repeating character " + "substring is " + len.ToString());
         }
-        public static int CountLongestUniqueSubsttr(String str)
+        public static int CountLongestUniqueSubsttr(string str)
         {
             var test = "";
 

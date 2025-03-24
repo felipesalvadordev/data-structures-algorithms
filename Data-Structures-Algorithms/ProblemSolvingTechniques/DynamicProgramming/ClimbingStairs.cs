@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace Data_Structures_Algorithms.Algorithms
+namespace Data_Structures_Algorithms.ProblemSolvingTechniques.DynamicProgramming
 {
     public class ClimbingStairs
     {
@@ -11,7 +11,7 @@ namespace Data_Structures_Algorithms.Algorithms
         public void Test()
         {
             int n = 3;
-            Console.WriteLine("Number of ways = "+ ClimbStairs(n));
+            Console.WriteLine("Number of ways = " + ClimbStairs(n));
         }
 
         public static int ClimbStairs(int n)

@@ -1,6 +1,6 @@
 using System;
 
-namespace Data_Structures_Algorithms.Algorithms
+namespace Data_Structures_Algorithms.ProblemSolvingTechniques.TwoPointers
 {
     public class MinimumSwapPalindrome
     {
@@ -10,7 +10,7 @@ namespace Data_Structures_Algorithms.Algorithms
             Console.WriteLine("Minimum of moves: " + MinMovesToMakePalindrome(str));
         }
 
-        private static int MinMovesToMakePalindrome(String s)
+        private static int MinMovesToMakePalindrome(string s)
         {
             var ans = 0;
             var firstPointer = 0;
@@ -84,7 +84,7 @@ namespace Data_Structures_Algorithms.Algorithms
             // count array
             for (int i = 0; i < str.Length; i++)
             {
-                count[(int)(str[i])]++;
+                count[str[i]]++;
             }
 
             // Count odd occurring characters

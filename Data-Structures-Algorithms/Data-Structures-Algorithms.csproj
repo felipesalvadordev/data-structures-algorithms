@@ -7,7 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Algorithms\BitManipulation\" />
+    <Folder Include="Algorithms\Graph\DFS\" />
+    <Folder Include="Algorithms\Graph\BFS\" />
+    <Folder Include="Algorithms\Graph\BellmanFord\" />
+    <Folder Include="Algorithms\MatrixTraversal\" />
+    <Folder Include="Algorithms\TreeTraversal\" />
+    <Folder Include="ProblemSolvingTechniques\BitManipulation\" />
+    <Folder Include="Algorithms\Sorting\" />
+    <Folder Include="ProblemSolvingTechniques\DivideAndConquer\" />
+    <Folder Include="ProblemSolvingTechniques\TopKElements\" />
+    <Folder Include="ProblemSolvingTechniques\PrefixSum\" />
     <Folder Include="Data-Structures\SubSets\" />
   </ItemGroup>
 

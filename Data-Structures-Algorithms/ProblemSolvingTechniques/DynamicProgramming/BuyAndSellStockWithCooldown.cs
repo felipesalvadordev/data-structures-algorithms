@@ -1,14 +1,51 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace Data_Structures_Algorithms.Algorithms
+namespace Data_Structures_Algorithms.ProblemSolvingTechniques.DynamicProgramming
 {
     public class BuyAndSellStockWithCooldown
     {
-        public void Test()
+        private Dictionary<(int, bool), int> dp =
+                   new Dictionary<(int, bool), int>();
+
+        public void Test2()
         {
             int[] prices = { 1, 2, 3, 0, 2 }; // Total is 3. Explanation: transactions = [buy, sell, cooldown, buy, sell]
             Console.WriteLine("Total profit is: " + MaxProfit(prices));
             Console.ReadLine();
+        }
+
+        public void Test(int[] prices)
+        {
+            Console.WriteLine("Total profit is: " + Dfs(0, true, prices));
+            Console.ReadLine();
+        }
+        private int Dfs(int i, bool buying, int[] prices)
+        {
+            if (i >= prices.Length)
+            {
+                return 0;
+            }
+
+            var key = (i, buying);
+            if (dp.ContainsKey(key))
+            {
+                return dp[key];
+            }
+
+            int cooldown = Dfs(i + 1, buying, prices);
+            if (buying)
+            {
+                int buy = Dfs(i + 1, false, prices) - prices[i];
+                dp[key] = Math.Max(buy, cooldown);
+            }
+            else
+            {
+                int sell = Dfs(i + 2, true, prices) + prices[i];
+                dp[key] = Math.Max(sell, cooldown);
+            }
+
+            return dp[key];
         }
 
         private int MaxProfit(int[] prices)
@@ -34,7 +71,7 @@ namespace Data_Structures_Algorithms.Algorithms
 
             if (length == 2 && prices[1] > prices[0]) // Buy and sell one time
                 return prices[1] - prices[0];
-            else if (length == 2 && prices[0] > prices[1]) 
+            else if (length == 2 && prices[0] > prices[1])
                 return 0;
 
 

@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace Data_Structures_Algorithms.Algorithms
+namespace Data_Structures_Algorithms.ProblemSolvingTechniques.DynamicProgramming
 {
     public class LongestCommonSubstring
     {
-        static String X, Y;
+        static string X, Y;
 
         //Dynamic Programming
         public void Test()

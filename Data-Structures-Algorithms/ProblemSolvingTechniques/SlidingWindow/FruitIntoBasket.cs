@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data_Structures_Algorithms.Algorithms
+namespace Data_Structures_Algorithms.ProblemSolvingTechniques.SlidingWindow
 {
     public class FruitIntoBasket
     {
@@ -47,7 +47,7 @@ namespace Data_Structures_Algorithms.Algorithms
                     secondLastFruit = lastFruit;
                     lastFruit = fruit;
                 }
-                max = Math.Max(max,current_max);
+                max = Math.Max(max, current_max);
             }
             return max;
         }

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data_Structures_Algorithms.Algorithms
+namespace Data_Structures_Algorithms.ProblemSolvingTechniques.DynamicProgramming
 {
     public class LongestCommonSubSequence
     {
         public void Test()
         {
-            String s1 = "fish";
-            String s2 = "fosh";
+            string s1 = "fish";
+            string s2 = "fosh";
 
             char[] X = s1.ToCharArray();
             char[] Y = s2.ToCharArray();
@@ -44,7 +44,7 @@ namespace Data_Structures_Algorithms.Algorithms
         /* Utility function to get max of 2 integers */
         static int Max(int a, int b)
         {
-            return (a > b) ? a : b;
+            return a > b ? a : b;
         }
     }
 }

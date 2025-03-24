@@ -1,9 +1,10 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data_Structures_Algorithms.Algorithms.Recursion
+namespace Data_Structures_Algorithms.ProblemSolvingTechniques.Recursion
 {
+    //Recursion
     public class BinarySearch
     {
         public void Test()
