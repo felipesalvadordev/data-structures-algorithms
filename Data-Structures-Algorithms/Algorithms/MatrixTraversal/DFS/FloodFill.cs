@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Data_Structures_Algorithms.Algorithms.Graph.DFS
+namespace Data_Structures_Algorithms.Algorithms.MatrixTraversal.DFS
 {
     //Given a 2D image image[][] where each image[i][j] is an integer representing
     //the color of that pixel also given a coordinate
@@ -51,7 +51,7 @@ namespace Data_Structures_Algorithms.Algorithms.Graph.DFS
             // color, return the image
             if (oldColor == newColor)
                 return imageMatrix;
-            
+
             // Call DFS with the starting pixel's original color
             Dfs(imageMatrix, sr, sc, imageMatrix[sr, sc], newColor, "Start");
 
@@ -60,7 +60,7 @@ namespace Data_Structures_Algorithms.Algorithms.Graph.DFS
 
         private static void Dfs(int[,] imageMatrix, int row,
                                 int column, int oldColor,
-                                int newColor, String directionToLog)
+                                int newColor, string directionToLog)
         {
 
             // Check boundary conditions and color match

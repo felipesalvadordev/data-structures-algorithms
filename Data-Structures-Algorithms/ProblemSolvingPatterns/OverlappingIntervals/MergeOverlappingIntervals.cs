@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Data_Structures_Algorithms.Algorithms
+namespace Data_Structures_Algorithms.ProblemSolvingTechniques.OverlappingIntervals
 {
     public class MergeOverlappingIntervals
     {

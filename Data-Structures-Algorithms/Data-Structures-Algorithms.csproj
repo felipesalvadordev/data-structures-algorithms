@@ -8,14 +8,11 @@
 
   <ItemGroup>
     <Folder Include="Algorithms\Graph\BellmanFord\" />
-    <Folder Include="Algorithms\MatrixTraversal\" />
-    <Folder Include="Algorithms\TreeTraversal\" />
-    <Folder Include="ProblemSolvingTechniques\BitManipulation\" />
+    <Folder Include="ProblemSolvingPatterns\BitManipulation\" />
     <Folder Include="Algorithms\Sorting\" />
-    <Folder Include="ProblemSolvingTechniques\DivideAndConquer\" />
-    <Folder Include="ProblemSolvingTechniques\TopKElements\" />
-    <Folder Include="ProblemSolvingTechniques\PrefixSum\" />
-    <Folder Include="Data-Structures\SubSets\" />
+    <Folder Include="ProblemSolvingPatterns\DivideAndConquer\" />
+    <Folder Include="ProblemSolvingPatterns\TopKElements\" />
+    <Folder Include="ProblemSolvingPatterns\PrefixSum\" />
   </ItemGroup>
 
 </Project>

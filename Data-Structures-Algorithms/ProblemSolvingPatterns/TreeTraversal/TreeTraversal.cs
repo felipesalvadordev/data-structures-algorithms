@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Data_Structures_Algorithms.Data_Structures
+namespace Data_Structures_Algorithms.ProblemSolvingTechniques.TreeTraversal
 {
     public class Node
     {
@@ -97,11 +97,11 @@ namespace Data_Structures_Algorithms.Data_Structures
 
                 if (lheight > rheight)
                 {
-                    return (lheight + 1);
+                    return lheight + 1;
                 }
                 else
                 {
-                    return (rheight + 1);
+                    return rheight + 1;
                 }
             }
         }

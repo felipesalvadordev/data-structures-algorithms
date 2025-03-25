@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Data_Structures_Algorithms.ProblemSolvingTechniques.BackTracking
+namespace Data_Structures_Algorithms.ProblemSolvingPatterns.BackTracking
 {
     //Considering this fact gives the time complexity (2N). Also, O(N) time requires printing each subset.
     //Therefore, the total time complexity of the program is O(N x 2N).
