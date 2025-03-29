@@ -10,41 +10,69 @@ namespace Data_Structures_Algorithms.ProblemSolvingTechniques.DynamicProgramming
         {
             string s1 = "fish";
             string s2 = "fosh";
-
-            char[] X = s1.ToCharArray();
-            char[] Y = s2.ToCharArray();
-            int m = X.Length;
-            int n = Y.Length;
-
-            Console.Write("Length of LCS is" + " " + LCS(X, Y, m, n));
+            Console.Write($"Length of LCS for words {s1} and {s2} is " + LongestCommonSubsequence(s1, s2));
+            Console.WriteLine();
+            s2 = "vistafh";
+            Console.Write($"Length of LCS for words {s1} and {s2} is " + LongestCommonSubsequence(s1, s2));
         }
-        static int LCS(char[] X, char[] Y, int m, int n)
-        {
-            int[,] L = new int[m + 1, n + 1];
 
-            /* Following steps build L[m+1][n+1] 
-            in bottom up fashion. Note 
-            that L[i][j] contains length of 
-            LCS of X[0..i-1] and Y[0..j-1] */
-            for (int i = 0; i <= m; i++)
+        public static (string, int) LongestCommonSubsequence(string word1, string word2)
+        {
+            if (string.IsNullOrEmpty(word1) || string.IsNullOrEmpty(word2))
+                return ("", 0);
+
+            string subSeq;
+            var matrix = new int[word1.Length + 1, word2.Length + 1];
+
+            for (int i = 1; i <= word1.Length; i++)
             {
-                for (int j = 0; j <= n; j++)
+                for (int j = 1; j <= word2.Length; j++)
                 {
-                    if (i == 0 || j == 0)
-                        L[i, j] = 0;
-                    else if (X[i - 1] == Y[j - 1])
-                        L[i, j] = L[i - 1, j - 1] + 1;
+                    if (word1[i - 1] == word2[j - 1])
+                    {
+                        matrix[i, j] = matrix[i - 1, j - 1] + 1;
+                    }
                     else
-                        L[i, j] = Max(L[i - 1, j], L[i, j - 1]);
+                    {
+                        matrix[i, j] = Math.Max(matrix[i, j - 1], matrix[i - 1, j]);
+                    }
                 }
             }
-            return L[m, n];
+
+            subSeq = Read(matrix, word1, word2);
+
+            return (subSeq, subSeq.Length);
         }
 
-        /* Utility function to get max of 2 integers */
-        static int Max(int a, int b)
+        private static string Read(int[,] matrix, string word1, string word2)
         {
-            return a > b ? a : b;
+            string subSeq = null;
+            int x = word1.Length;
+            int y = word2.Length;
+
+            while (x > 0 && y > 0)
+            {
+                if (word1[x - 1] == word2[y - 1])
+                {
+                    subSeq += word1[x - 1];
+                    x--;
+                    y--;
+                }
+                else if (matrix[x - 1, y] > matrix[x, y - 1])
+                {
+                    x--;
+                }
+                else
+                {
+                    y--;
+                }
+            }
+
+            var charArray = subSeq.ToCharArray();
+            Array.Reverse(charArray);
+            subSeq = new string(charArray);
+
+            return subSeq;
         }
     }
 }
