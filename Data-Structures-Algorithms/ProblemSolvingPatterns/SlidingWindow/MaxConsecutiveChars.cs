@@ -4,7 +4,7 @@ namespace Data_Structures_Algorithms.ProblemSolvingPatterns.SlidingWindow
 {
     internal class MaxConsecutiveChars
     {
-        static void Main(string[] args)
+        public void Test()
         {
             //int[] nums = {1,1,1,0,0,0,1,1,1,1,0 }; //Result 6
             //int k = 2;
