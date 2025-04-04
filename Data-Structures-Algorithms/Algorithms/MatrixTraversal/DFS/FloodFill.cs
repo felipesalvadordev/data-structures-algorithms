@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Data_Structures_Algorithms.Algorithms.MatrixTraversal.DFS
 {
@@ -10,8 +11,9 @@ namespace Data_Structures_Algorithms.Algorithms.MatrixTraversal.DFS
     //newColor = 2
 
     //Result: [[2,2,2],[2,2,0],[2,0,1]]
-    //The idea is to use Breadth-First Search (BFS) to change all connected
-    //pixels with the same color (oldColor) to a new color (newColor).
+    //The idea is to use Depth-First Search(DFS) to explore and change the connected pixels,
+    //visiting each pixel only once.The DFS ensures that all adjacent pixels—up, down,
+    //left, and right—are checked and updated recursively until the entire connected component is filled with the new color.
 
     //From the center of the imageMatrix(with position (sr, sc) = (1, 1)),
     //all pixels connected by a path of the same color as the starting pixel are
