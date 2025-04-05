@@ -26,6 +26,12 @@ namespace Data_Structures_Algorithms.Data_Structures.Queues
         }
 
         //Breadth First Search
+        //Put root element in queue
+        //While queue not empty, iterate over the count to get the element inputed 
+        //Get the element from queue(dequeue) and put left and/or right element in the queue
+        //Count 1 level
+        //Repet until all elements are queued and dequeud from the queue
+        //Return the level counter
         public int MaxDepth(TreeNode root)
         {
             Queue<TreeNode> q = new Queue<TreeNode>();
