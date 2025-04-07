@@ -1,26 +1,20 @@
-﻿
+﻿using System;
 
-using Data_Structures_Algorithms.Data_Structures.Queues;
-using Data_Structures_Algorithms.ProblemSolvingPatterns.DynamicProgramming;
-using Data_Structures_Algorithms.ProblemSolvingPatterns.Recursion;
-using Data_Structures_Algorithms.ProblemSolvingTechniques.Recursion;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-
-namespace data_structure_algorithms
+namespace Data_Structures_Algorithms.ProblemSolvingPatterns.Recursion
 {
-    class Program
+    internal class SearchInABinaryTree
     {
+        //Time: O(logN) in average and O(N) in worst case.
+        //Space: O(logN) in average and O(N) in worst case for the call stack.
         static TreeNode nodeElementFound = null;
-        static void Main(string[] args)
+        public void Test()
         {
-            //var val = 2;
-            //TreeNode root = new TreeNode(4)
-            //{
-            //    left = new TreeNode(2) { right = new TreeNode(3), left = new TreeNode(1) },
-            //    right = new TreeNode(7)//Result 2,1,3
-            //};
+            var val = 2;
+            TreeNode root = new TreeNode(4)
+            {
+                left = new TreeNode(2) { right = new TreeNode(3), left = new TreeNode(1) },
+                right = new TreeNode(7)//Result 2,1,3
+            };
 
             //var val = 63; //Result: 63, null, 84
             //TreeNode root = new TreeNode(18)
@@ -33,20 +27,10 @@ namespace data_structure_algorithms
             //};
 
 
-            //[62,2,93,null,30,null,null,15,null,null,null]
-
-            var val = 15;
-            TreeNode root = new TreeNode(62)
-            {
-                left = new TreeNode(2) { right = null, left = new TreeNode(30) { left = null, right = null } },
-                right = new TreeNode(93) { right = null, left = new TreeNode(15) { left = null, right = null } }
-            };
-
-
             DFS(root, val);
             if (nodeElementFound == null)
             {
-                Console.WriteLine($"Numero {val} não existe na arvore");
+                Console.WriteLine($"Number {val} doest not exist in the tree");
             }
             else
             {
@@ -54,7 +38,7 @@ namespace data_structure_algorithms
             }
         }
 
-        public static void DFS(TreeNode node, int val)
+        public void DFS(TreeNode node, int val)
         {
             if (nodeElementFound != null)
             {

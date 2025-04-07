@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Data_Structures_Algorithms.ProblemSolvingPatterns.Recursion
 {
-    internal class BinaryTreeRightSideViewBFS
+    internal class BinaryTreeRightSideViewDFS
     {
         List<int> visibleElements = new List<int>();
         public void Test()

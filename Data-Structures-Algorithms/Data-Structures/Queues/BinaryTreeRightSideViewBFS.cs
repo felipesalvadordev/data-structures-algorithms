@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Data_Structures_Algorithms.Data_Structures.Queues
 {
-    internal class BinaryTreeRightSideViewDFS
+    internal class BinaryTreeRightSideViewBFS
     {
         public void Test()
         {
