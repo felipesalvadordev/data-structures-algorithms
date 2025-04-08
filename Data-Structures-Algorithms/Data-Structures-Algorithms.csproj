@@ -12,7 +12,6 @@
     <Folder Include="Algorithms\Sorting\" />
     <Folder Include="ProblemSolvingPatterns\DivideAndConquer\" />
     <Folder Include="ProblemSolvingPatterns\TopKElements\" />
-    <Folder Include="ProblemSolvingPatterns\PrefixSum\" />
   </ItemGroup>
 
 </Project>
