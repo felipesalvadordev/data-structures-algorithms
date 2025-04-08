@@ -19,6 +19,9 @@ namespace Data_Structures_Algorithms.ProblemSolvingTechniques.TreeTraversal
         // Root of Binary Tree
         Node root;
 
+        /// <summary>
+        /// Explores nodes systematically, starting from the leaves and moving towards the root.
+        /// </summary>
         void PrintPostorder(Node node)
         {
             if (node == null)
@@ -33,7 +36,10 @@ namespace Data_Structures_Algorithms.ProblemSolvingTechniques.TreeTraversal
             // now deal with the node
             Console.Write(node.key + " ");
         }
-
+        /// <summary>
+        /// Explores nodes systematically, moving from the leftmost node to the rightmost node while 
+        /// respecting the hierarchical order of the tree.
+        /// </summary>
         void PrintInorder(Node node)
         {
             if (node == null)
@@ -49,6 +55,9 @@ namespace Data_Structures_Algorithms.ProblemSolvingTechniques.TreeTraversal
             PrintInorder(node.right);
         }
 
+        /// <summary>
+        ///Explores nodes in a systematic manner, starting from the root and moving towards the leaves
+        /// </summary>
         void PrintPreorder(Node node)
         {
             if (node == null)
@@ -132,7 +141,7 @@ namespace Data_Structures_Algorithms.ProblemSolvingTechniques.TreeTraversal
             *            / \  
             *           4    5    
             *
-            * Depth First Traversals:
+            * Depth First Traversals (DFS):
             * (a) Inorder(Left, Root, Right) : 4 2 5 1 3
             * (b) Preorder(Root, Left, Right) : 1 2 4 5 3
             * (c) Postorder(Left, Right, Root) : 4 5 2 3 1

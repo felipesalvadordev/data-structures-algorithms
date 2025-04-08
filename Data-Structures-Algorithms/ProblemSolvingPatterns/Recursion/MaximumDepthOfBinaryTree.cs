@@ -1,33 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 
 namespace Data_Structures_Algorithms.ProblemSolvingPatterns.Recursion
 {
     internal class MaximumDepthOfBinaryTree
     {
+        //Depth-first search to traverse down the tree until we reach a null value. At that point,
+        //return the current depth.
         public void Test()
         {
+            /*
+            *               3
+            *              / \
+            *             9  20
+            *            /   / \  
+            *           10  15  7 
+            *                    \
+            *                     8
+            */
+
             TreeNode root = new TreeNode(3)
             {
-                left = new TreeNode(9),
-                right = new TreeNode(20) { left = new TreeNode(15), right = new TreeNode(7) }
+                left = new TreeNode(9) { left = new TreeNode(10) },
+                right = new TreeNode(20) { left = new TreeNode(15), right = new TreeNode(7) { right = new TreeNode(8) } }
             };
 
-            var maxDepth = MaxDepth(root);
+            var maxDepth = Traverse(root, 0);
             Console.WriteLine(maxDepth);
         }
 
 
-        public int MaxDepth(TreeNode root)
-        {
-            return Traverse(root, 0);
-        }
+        //public int MaxDepth(TreeNode root)
+        //{
+        //    return Traverse(root, 0);
+        //}
 
-        //Depth-first search
+        //Depth-first search (DFS)
         public int Traverse(TreeNode currentNode, int currentDepth)
         {
-            if (currentNode == null) 
+            if (currentNode == null)
                 return currentDepth;
 
             currentDepth++;
