@@ -24,6 +24,9 @@ namespace Data_Structures_Algorithms.ProblemSolvingTechniques.Recursion
         {
             if (right >= left)
             {
+                //If the middle index is generated simply by getting the middle index (int mid = (low + high) / 2),
+                //an overflow may occur for an array containing 230 or more elements as the sum of low + high
+                //could easily exceed the maximum positive int value
                 int mid = left + (right - left) / 2;
 
                 // If the element is present at the middle itself
