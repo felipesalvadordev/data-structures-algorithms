@@ -15,6 +15,9 @@ namespace Data_Structures_Algorithms.ProblemSolvingTechniques.TwoPointers
             Console.Write(CountPairSums(arr, val));
         }
 
+        //Sum equals k. This is the target pair, we move both pointers towards each other.
+        //Sum is smaller than k. We move the left pointer to increase the sum.
+        //Sum is bigger than k. We move the right pointer to decrease the sum.
         public static int CountPairSums(int[] array, int valToValidateTheSum)
         {
             //first pointer
