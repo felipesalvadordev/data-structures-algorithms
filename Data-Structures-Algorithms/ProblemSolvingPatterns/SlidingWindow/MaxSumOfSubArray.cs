@@ -9,36 +9,41 @@ namespace Data_Structures_Algorithms.ProblemSolvingTechniques.SlidingWindow
         public void Test()
         {
             int[] arr = { 1, 4, 2, 10, 2, 3, 1, 0, 20 }; //Max sum is 20 + 0 + 1 + 3
-            int k = 4;
+            int k = 4;//Min elements used for the count
             Console.WriteLine(MaxSum(arr, k));
         }
 
-        static int MaxSum(int[] arr, int k)
+        static int MaxSum(int[] nums, int k)
         {
-            if (arr.Length < k)
+
+            // n must be greater
+            if (nums.Length <= k)
             {
                 Console.WriteLine("Invalid");
                 return -1;
             }
 
             // Compute sum of first window of size k
-            int maxSum = 0;
+            int window_sum = 0;
 
             for (int i = 0; i < k; i++)
-                maxSum += arr[i];
+                window_sum += nums[i];
 
             // Compute sums of remaining windows by
             // removing first element of previous
             // window and adding last element of
             // current window.
-            int windowSum = maxSum;
-            for (int i = k; i < arr.Length; i++)
+
+            int max_sum = window_sum;
+
+            for (int i = k; i < nums.Length; i++)
             {
-                windowSum += arr[i] - arr[i - k]; //arr[i - k] is the first element of previous window
-                maxSum = Math.Max(maxSum, windowSum);
+                window_sum -= nums[i];//Remove element leaving window
+                window_sum += nums[i - k];//Add new element entering window
+                max_sum = Math.Max(max_sum, window_sum);
             }
 
-            return maxSum;
+            return max_sum;
         }
 
         //Complexity is O(n).

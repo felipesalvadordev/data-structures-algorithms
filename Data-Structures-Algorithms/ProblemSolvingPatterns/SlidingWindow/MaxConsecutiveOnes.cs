@@ -6,14 +6,18 @@ namespace Data_Structures_Algorithms.ProblemSolvingPatterns.SlidingWindow
     {
         public void Test()
         {
+            //The complexity is, therefore, O(n)
+            //Therefore, the space complexity of this solution is O(1) as it requires
+            //a constant amount of extra space
+
             //int[] nums = {1,1,1,0,0,0,1,1,1,1,0 }; //Result 6
             //int k = 2;
 
             int[] nums = { 0, 0, 0, 1 };//Result 4
             int k = 4;
-            Console.WriteLine(LongestOnes(nums, k));
+            Console.WriteLine(FindMaxConsecutiveOnes(nums, k));
         }
-        static int LongestOnes(int[] nums, int k)
+        static int FindMaxConsecutiveOnes(int[] nums, int k)
         {
             //Two pointers are used to manage the window of consecutive 1s.
             //The right pointer expands the window to include more elements.
