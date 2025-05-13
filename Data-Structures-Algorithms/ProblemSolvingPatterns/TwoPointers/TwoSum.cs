@@ -1,0 +1,71 @@
+﻿using System;
+
+namespace Data_Structures_Algorithms.ProblemSolvingPatterns.TwoPointers
+{
+    internal class TwoSum
+    {
+        public void Test()
+        {
+            //int[] arr = { 2, 3, 4 }; int target = 5;//result 0,1
+            int[] arr = { -8, 1, 4, 6, 10, 45 }; int target = 30;//result 3,4
+            TwoSumNaive(arr, target);
+            TwoSumTwoPointers(arr, target);
+        }
+
+        // Function to check whether any pair exists
+        // whose sum is equal to the given target value
+        static bool TwoSumNaive(int[] arr, int target)
+        {
+            int n = arr.Length;
+
+            // Iterate through each element in the array
+            for (int i = 0; i < n; i++)
+            {
+
+                // For each element arr[i], check every
+                // other element arr[j] that comes after it
+                for (int j = i + 1; j < n; j++)
+                {
+                    // Check if the sum of the current pair
+                    // equals the target
+                    if (arr[i] + arr[j] == target)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            // If no pair is found after checking
+            // all possibilities
+            return false;
+        }
+
+        // Function to check whether any pair exists
+        // whose sum is equal to the given target value
+        //O(n) time and O(1) space
+        static bool TwoSumTwoPointers(int[] arr, int target)
+        {
+
+            // Sort the array
+            Array.Sort(arr);
+
+            int left = 0, right = arr.Length - 1;
+
+            // Iterate while left pointer is less than right
+            while (left < right)
+            {
+                int sum = arr[left] + arr[right];
+
+                // Check if the sum matches the target
+                if (sum == target)
+                    return true;
+                else if (sum < target)
+                    left++; // Move left pointer to the right
+                else
+                    right--; // Move right pointer to the left
+            }
+            // If no pair is found
+            return false;
+        }
+    }
+}
