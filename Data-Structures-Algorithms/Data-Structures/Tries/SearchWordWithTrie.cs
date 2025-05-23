@@ -8,83 +8,33 @@ namespace Data_Structures_Algorithms.Data_Structures
     //The word Trie is derived from reTRIEval, which means finding something or obtaining it.
     public class SearchWordWithTrie
     {
-        static TrieNode root;
-
         public void Test()
         {
-            // Input keys (use only 'a'
-            // through 'z' and lower case)
-            String[] keys = {"the", "a", "there", "answer",
-                        "any", "by", "bye", "their"};
+            Trie trie = new Trie();
+            string[] arr = { "and", "ant", "do", "dad" };
 
-            String[] output = { "Not present in trie", "Present in trie" };
+            foreach (string s in arr) { trie.Insert(s); }
 
-
-            root = new TrieNode();
-
-            // Construct trie
-            int i;
-            for (i = 0; i < keys.Length; i++)
-                Insert(keys[i]);
-
-            // Search for different keys
-            if (Search("the") == true)
-                Console.WriteLine("the --- " + output[1]);
-            else Console.WriteLine("the --- " + output[0]);
-
-            if (Search("these") == true)
-                Console.WriteLine("these --- " + output[1]);
-            else Console.WriteLine("these --- " + output[0]);
-
-            if (Search("their") == true)
-                Console.WriteLine("their --- " + output[1]);
-            else Console.WriteLine("their --- " + output[0]);
-
-            if (Search("thaw") == true)
-                Console.WriteLine("thaw --- " + output[1]);
-            else Console.WriteLine("thaw --- " + output[0]);
-
-        }
-
-        static bool Search(String key)
-        {
-            int level;
-            int length = key.Length;
-            int index;
-            TrieNode pCrawl = root;
-
-            for (level = 0; level < length; level++)
+            // One by one search strings
+            string[] searchKeys = { "do", "gee", "bat" };
+            foreach (string s in searchKeys)
             {
-                index = key[level] - 'a';
-
-                if (pCrawl.children[index] == null)
-                    return false;
-
-                pCrawl = pCrawl.children[index];
+                if (trie.Search(s))
+                    Console.Write("true ");
+                else
+                    Console.Write("false ");
             }
+            Console.WriteLine();
 
-            return (pCrawl.isEndOfWord);
-        }
-
-        static void Insert(String key)
-        {
-            int level;
-            int length = key.Length;
-            int index;
-
-            TrieNode pCrawl = root;
-
-            for (level = 0; level < length; level++)
+            // One by one search for prefixes
+            string[] prefixKeys = { "ge", "ba", "do", "de" };
+            foreach (string s in prefixKeys)
             {
-                index = key[level] - 'a';
-                if (pCrawl.children[index] == null)
-                    pCrawl.children[index] = new TrieNode();
-
-                pCrawl = pCrawl.children[index];
+                if (trie.isPrefix(s))
+                    Console.Write("true ");
+                else
+                    Console.Write("false ");
             }
-
-            // mark last node as leaf
-            pCrawl.isEndOfWord = true;
         }
     }
 
@@ -96,16 +46,69 @@ namespace Data_Structures_Algorithms.Data_Structures
 
         // isEndOfWord is true if the node represents
         // end of a word
-        public bool isEndOfWord;
+
+        public bool isLeaf;
 
         public TrieNode()
         {
-            isEndOfWord = false;
+            isLeaf = false;
             for (int i = 0; i < ALPHABET_SIZE; i++)
                 children[i] = null;
         }
-    };
+    }
+    public class Trie
+    {
+        private TrieNode root;
 
-    //Insertion O(n)    O(n* m)
-    //Searching O(n)    O(1)
+        public Trie() { root = new TrieNode(); }
+
+        public void Insert(string key)
+        {
+            TrieNode curr = root;
+            foreach (char c in key)
+            {
+                if (curr.children[c - 'a'] == null)
+                {
+                    curr.children[c - 'a'] = new TrieNode();
+                }
+                curr = curr.children[c - 'a'];
+            }
+            curr.isLeaf = true;
+        }
+
+        public bool Search(string word)
+        {
+            TrieNode cur = root;
+            foreach (char c in word)
+            {
+                int i = c - 'a';
+                if (cur.children[i] == null)
+                {
+                    return false;
+                }
+                cur = cur.children[i];
+            }
+            return cur.isLeaf;
+        }
+
+        public bool isPrefix(string prefix)
+        {
+            TrieNode cur = root;
+            foreach (char c in prefix)
+            {
+                int i = c - 'a';
+                if (cur.children[i] == null)
+                {
+                    return false;
+                }
+                cur = cur.children[i];
+            }
+            return true;
+        }
+    }
 }
+
+//Insertion O(n) Here n is the length of the string inserted
+//Searching O(n) Here n is the length of the string searched
+//Prefix Searching O(n) Here n is the length of the string searched
+
