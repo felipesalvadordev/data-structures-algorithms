@@ -1,5 +1,4 @@
-﻿using Data_Structures_Algorithms.ProblemSolvingTechniques.OverlappingIntervals;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Security.Principal;
 using System.Text;
@@ -16,11 +15,6 @@ namespace Data_Structures_Algorithms.ProblemSolvingPatterns.MergeIntervals
             new int[] { 2, 4 },
             new int[] { 4, 6 }
         };
-            //List<int[]> res = MergeOverlapNaive(arr);
-
-            //foreach (var interval in res)
-            //    Console.WriteLine($"{interval[0]} {interval[1]}");
-
             List<int[]> res = MergeOverlap(arr);
 
             foreach (var interval in res)
